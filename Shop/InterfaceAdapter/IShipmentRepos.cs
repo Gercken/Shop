@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop.InterfaceAdapter
 {
-    internal interface IShipmentRepos
+    public interface IShipmentRepos
     {
         int GetShipmentPrice();
     }

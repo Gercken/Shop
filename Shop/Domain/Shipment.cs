@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Shop.Domain;
 using Shop.Infrastructure;
+using Shop.InterfaceAdapter;
 
 namespace Shop.Domain
 {
@@ -17,7 +18,7 @@ namespace Shop.Domain
 
         public override double Cost()
         {
-            FileShipmentRepos fileShipmentRepos = new FileShipmentRepos();
+            IShipmentRepos fileShipmentRepos = new FileShipmentRepos();
 
             return order.Cost() + fileShipmentRepos.GetShipmentPrice();
 
@@ -26,7 +27,7 @@ namespace Shop.Domain
 
         public override string Description()
         {
-            FileShipmentRepos fileShipmentRepos = new FileShipmentRepos();
+            IShipmentRepos fileShipmentRepos = new FileShipmentRepos();
 
             return order.Description() + ", Plus shipping";
         }
